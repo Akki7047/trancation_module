@@ -178,21 +178,21 @@ public class TransactionDetails {
 	}
 	
 	@Column(name="Localdate")
-	LocalDate transactiondate;
+	LocalDate userTransactionDate;
 
 
 	/**
 	 * @return the transactiondate
 	 */
-	public LocalDate getTransactiondate() {
-		return transactiondate;
+	public LocalDate getUserTransactionDate() {
+		return userTransactionDate;
 	}
 
 	/**
 	 * @param transactiondate the transactiondate to set
 	 */
-	public void setTransactiondate(LocalDate transactiondate) {
-		this.transactiondate = transactiondate;
+	public void setUserTransactionDate(LocalDate userTransactionDate) {
+		this.userTransactionDate = userTransactionDate;
 	}
 
 	public TransactionDetails() {
@@ -206,7 +206,7 @@ public class TransactionDetails {
 				+ ", transactionStatus=" + transactionStatus + ", transactionAmount=" + transactionAmount
 				+ ", transactionDate=" + transactionDate + ", benificaryName=" + benificaryName
 				+ ", benificaryAccoountNumber=" + benificaryAccoountNumber + ", bankName=" + bankName
-				+ ", current_Balance=" + current_Balance + ", transactiondate=" + transactiondate + "]";
+				+ ", current_Balance=" + current_Balance + ", transactiondate=" + userTransactionDate + "]";
 	}
 
 	public TransactionDetails(long transactionId, long accountNumber, String transactionOption, String transactionType,
@@ -224,7 +224,7 @@ public class TransactionDetails {
 		this.benificaryAccoountNumber = benificaryAccoountNumber;
 		this.bankName = bankName;
 		this.current_Balance = current_Balance;
-		transactiondate = transactiondate2;
+		userTransactionDate = transactiondate2;
 	}
 	
 	

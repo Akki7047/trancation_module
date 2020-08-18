@@ -11,7 +11,9 @@ public class Cheque {
 	
 	private double amount;
 	private String bankName;
-	private String issuedate;
+	private String userIssueDate;
+
+
 
 
 	public Cheque(String pay, long accountNumber, long chequeNumber, String iFSC, double amount, String bankName,
@@ -23,14 +25,14 @@ public class Cheque {
 		IFSC = iFSC;
 		this.amount = amount;
 		this.bankName = bankName;
-		this.issuedate = issuedate;
+		this.userIssueDate = userIssueDate;
 	}
 
 	@Override
 	public String toString() {
 		return "Cheque [pay=" + pay + ", accountNumber=" + accountNumber + ", issueDate=" + issueDate
 				+ ", chequeNumber=" + chequeNumber + ", IFSC=" + IFSC + ", amount=" + amount + ", bankName=" + bankName
-				+ ", issuedate=" + issuedate + "]";
+				+ ", issuedate=" + userIssueDate + "]";
 	}
 	
 	public Cheque() {
@@ -122,20 +124,20 @@ public class Cheque {
 	public void setBankName(String bankName) {
 		this.bankName = bankName;
 	}
+	
+	
 	/**
 	 * @return the issueDate
 	 */
-	public String getIssuedate() {
-		return issuedate;
+	public String getUserIssueDate() {
+		return userIssueDate;
 	}
 	/**
 	 * @param issuedate the issueDate to set
 	 */
-	public void setIssuedate(String issuedate) {
-		this.issuedate = issuedate;
+	public void setUserIssueDate(String userIssueDate) {
+		this.userIssueDate = userIssueDate;
 	}
-	
-
 	
 
 

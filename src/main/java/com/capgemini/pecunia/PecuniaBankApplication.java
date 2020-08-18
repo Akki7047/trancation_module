@@ -119,8 +119,8 @@ public class PecuniaBankApplication implements CommandLineRunner {
 				DepositSlip slip=new DepositSlip(1875662201,"VAISHALI TIWARI",1000);
 				logger.info(slip.toString());
 			
-				//System.out.println(slip.toString());
-				System.out.println(transactionService.depositMoneyBySlip(slip));
+				
+				
 				
 			    Cheque cheque=new Cheque();
 				cheque.setAccountNumber(1875662202);
@@ -132,7 +132,7 @@ public class PecuniaBankApplication implements CommandLineRunner {
                  cheque.setPay("VAISHALI TIWARI");
                 
                  
-                 System.out.println( transactionService.depositChequeInAccount(cheque, slip));
+                
 				
 				TransferSlip slip1=new TransferSlip();
 				slip1.setAccountHolderName("AMARDEEP SINGH");

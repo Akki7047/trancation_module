@@ -88,7 +88,7 @@ public class TransactionController {
 	public ResponseEntity<String>  withdrawalCheque(@RequestBody Cheque cheque)  {
 		System.out.println(cheque);
 		String []data;
-		data=cheque.getIssuedate().split("-");
+		data=cheque.getUserIssueDate().split("-");
 		int year = Integer.parseInt( data[0] );
 		int month = Integer.parseInt( data[1] );  
 		int day = Integer.parseInt( data[2] );
@@ -112,7 +112,7 @@ public class TransactionController {
 	@PostMapping("/TransferMoneyUsingCheque")
 	public ResponseEntity<String>  transferCheque(@RequestBody Data1 data1)   {
 		String []data;
-		data=data1.getCheque().getIssuedate().split("-");
+		data=data1.getCheque().getUserIssueDate().split("-");
 		int year = Integer.parseInt( data[0] );
 		int month = Integer.parseInt( data[1] );  
 		int day = Integer.parseInt( data[2] );
@@ -137,7 +137,7 @@ public class TransactionController {
 		String []data;
 		//if(data2.getDepositSlip().getAmount()==data2.getCheque().getAmount())
 		//System.out.println(data2.getCheque().getAmount()+""+data2.getDepositSlip().getAmount());
-		data=data2.getCheque().getIssuedate().split("-");
+		data=data2.getCheque().getUserIssueDate().split("-");
 		int year = Integer.parseInt( data[0] );
 		int month = Integer.parseInt( data[1] );  
 		int day = Integer.parseInt( data[2] );

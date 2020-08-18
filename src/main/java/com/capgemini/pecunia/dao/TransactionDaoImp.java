@@ -30,6 +30,11 @@ import com.capgemini.pecunia.entity.WithdrawalSlip;
 @Transactional
 @Repository
 public class TransactionDaoImp implements TransactionDao {
+	private String pec="PECUNIA";
+	private String deb="DEBIT";
+	private String suc="Sucessful";
+	private String crd="CREDIT";
+	private String chq="Cheque";
 
 	@PersistenceContext
 	EntityManager em;
@@ -88,12 +93,12 @@ public class TransactionDaoImp implements TransactionDao {
 		TransactionDetails transaction=new TransactionDetails();
 		transaction.setAccountNumber(accountDetails.getAccountNumber());
 		transaction.setTransactionAmount(slip.getAmount());
-		transaction.setBankName("PECUNIA");
+		transaction.setBankName(pec);
 		transaction.setBenificaryName(slip.getAccountHolderName());
 		transaction.setTransactionDate(LocalDateTime.now());
 		transaction.setTransactiondate(LocalDate.now());
-		transaction.setTransactionType("DEBIT");
-		transaction.setTransactionStatus("Sucessful");
+		transaction.setTransactionType(deb);
+		transaction.setTransactionStatus(suc);
 		transaction.setTransactionOption("Slip");
 		transaction.setCurrent_Balance(accountDetails.getAccountBalance()-slip.getAmount());
 		em.persist(transaction);
@@ -106,12 +111,12 @@ public class TransactionDaoImp implements TransactionDao {
 		TransactionDetails transaction=new TransactionDetails();
 		transaction.setAccountNumber(accountDetails.getAccountNumber());
 		transaction.setTransactionAmount(slip.getAmount());
-		transaction.setBankName("PECUNIA");
+		transaction.setBankName(pec);
 		transaction.setBenificaryName(slip.getAccountHolderName());
 		transaction.setTransactionDate(LocalDateTime.now());
 		transaction.setTransactiondate(LocalDate.now());
-		transaction.setTransactionType("CREDIT");
-		transaction.setTransactionStatus("Sucessful");
+		transaction.setTransactionType(crd);
+		transaction.setTransactionStatus(suc);
 		transaction.setTransactionOption("Slip");
 		transaction.setCurrent_Balance(accountDetails.getAccountBalance()+slip.getAmount());
 		em.persist(transaction);
@@ -124,13 +129,13 @@ public class TransactionDaoImp implements TransactionDao {
 		TransactionDetails transaction=new TransactionDetails();
 		transaction.setAccountNumber(accountDetails.getAccountNumber());
 		transaction.setTransactionAmount(cheque.getAmount());
-		transaction.setBankName("PECUNIA");
+		transaction.setBankName(pec);
 		transaction.setBenificaryName(cheque.getPay());
 		transaction.setTransactionDate(LocalDateTime.now());
 		transaction.setTransactiondate(LocalDate.now());
-		transaction.setTransactionType("DEBIT");
-		transaction.setTransactionStatus("Sucessful");
-		transaction.setTransactionOption("Cheque");
+		transaction.setTransactionType(deb);
+		transaction.setTransactionStatus(suc);
+		transaction.setTransactionOption(chq);
 		transaction.setCurrent_Balance(accountDetails.getAccountBalance()-cheque.getAmount());
 		em.persist(transaction);
 		return transaction;
@@ -143,14 +148,14 @@ public class TransactionDaoImp implements TransactionDao {
 		TransactionDetails transaction=new TransactionDetails();
 		transaction.setAccountNumber(accountDetails.getAccountNumber());
 		transaction.setTransactionAmount(cheque.getAmount());
-		transaction.setBankName("PECUNIA");
+		transaction.setBankName(pec);
 		transaction.setBenificaryAccoountNumber(slip.getAccountNumber());
 		transaction.setBenificaryName(cheque.getPay());
 		transaction.setTransactionDate(LocalDateTime.now());
 		transaction.setTransactiondate(LocalDate.now());
-		transaction.setTransactionType("DEBIT");
-		transaction.setTransactionStatus("Sucessful");
-		transaction.setTransactionOption("Cheque");
+		transaction.setTransactionType(deb);
+		transaction.setTransactionStatus(suc);
+		transaction.setTransactionOption(chq);
 		transaction.setCurrent_Balance(accountDetails.getAccountBalance()-cheque.getAmount());
 		em.persist(transaction);
 		return transaction;
@@ -162,14 +167,14 @@ public class TransactionDaoImp implements TransactionDao {
 		TransactionDetails transaction=new TransactionDetails();
 		transaction.setAccountNumber(cheque.getAccountNumber());
 		transaction.setTransactionAmount(cheque.getAmount());
-		transaction.setBankName("PECUNIA");
+		transaction.setBankName(pec);
 		transaction.setBenificaryAccoountNumber(slip.getAccountNumber());
 		transaction.setBenificaryName(cheque.getPay());
 		transaction.setTransactionDate(LocalDateTime.now());
 		transaction.setTransactiondate(LocalDate.now());
-		transaction.setTransactionType("CREDIT");
-		transaction.setTransactionStatus("Sucessful");
-		transaction.setTransactionOption("Cheque");
+		transaction.setTransactionType(crd);
+		transaction.setTransactionStatus(suc);
+		transaction.setTransactionOption(chq);
 		transaction.setCurrent_Balance(accountDetails.getAccountBalance()+cheque.getAmount());
 		em.persist(transaction);
 		return transaction;
@@ -186,9 +191,9 @@ public class TransactionDaoImp implements TransactionDao {
 		transaction.setBenificaryName(accountDetails.getAccountHolderName());
 		transaction.setTransactionDate(LocalDateTime.now());
 		transaction.setTransactiondate(LocalDate.now());
-		transaction.setTransactionType("CREDIT");
-		transaction.setTransactionStatus("Sucessful");
-		transaction.setTransactionOption("Cheque");
+		transaction.setTransactionType(crd);
+		transaction.setTransactionStatus(suc);
+		transaction.setTransactionOption(chq);
 		transaction.setCurrent_Balance(accountDetails.getAccountBalance()+cheque.getAmount());
 		em.persist(transaction);
 		return transaction;
@@ -205,9 +210,9 @@ public class TransactionDaoImp implements TransactionDao {
 		transaction.setBenificaryName(cheque.getPay());
 		transaction.setTransactionDate(LocalDateTime.now());
 		transaction.setTransactiondate(LocalDate.now());
-		transaction.setTransactionType("DEBIT");
-		transaction.setTransactionStatus("Sucessful");
-		transaction.setTransactionOption("Cheque");
+		transaction.setTransactionType(deb);
+		transaction.setTransactionStatus(suc);
+		transaction.setTransactionOption(chq);
 		transaction.setCurrent_Balance(accountDetails.getAccountBalance()-cheque.getAmount());
 		em.persist(transaction);
 		return transaction;
