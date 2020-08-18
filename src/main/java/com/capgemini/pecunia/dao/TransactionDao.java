@@ -2,7 +2,6 @@ package com.capgemini.pecunia.dao;
 
 import java.util.List;
 
-
 import com.capgemini.pecunia.entity.AccountDetails;
 import com.capgemini.pecunia.entity.Cheque;
 import com.capgemini.pecunia.entity.DepositSlip;

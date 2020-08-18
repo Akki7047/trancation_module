@@ -26,7 +26,7 @@ import com.capgemini.pecunia.service.TransactionService;
 
 
 /****************************
- *          @author          Satyam Sinha
+ *          @author          Akshay patel
  *          Description      It is a Rest full service class that provides the services for Transaction
   *         Version             1.0
   *         Created Date    12-APR-2020

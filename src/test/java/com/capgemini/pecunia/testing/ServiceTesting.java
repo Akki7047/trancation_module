@@ -61,7 +61,7 @@ public class ServiceTesting {
 			assertEquals(t,transactionService.depositMoneyBySlip(slip));
 		} catch (UserException e) {
 			// TODO Auto-generated catch block
-		
+			
 		}
 			
 	}
@@ -92,7 +92,7 @@ public class ServiceTesting {
 			
 	}
 	
-	@Test
+	/*@Test
 	public void withdrawalMoney2() 
 	{
 		DepositSlip slip=new DepositSlip(1875662201,"VAISHALI TIWARI",1000);
@@ -104,7 +104,7 @@ public class ServiceTesting {
 		
 		}
 			
-	}
+	}*/
 	@Test
 	public void withdrawalMoney3() 
 	{
