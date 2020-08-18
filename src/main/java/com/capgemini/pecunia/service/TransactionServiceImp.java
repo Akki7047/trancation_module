@@ -3,16 +3,18 @@ package com.capgemini.pecunia.service;
 
 import java.util.List;
 
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.capgemini.pecunia.dao.TransactionDao;
 import com.capgemini.pecunia.entity.AccountDetails;
 import com.capgemini.pecunia.entity.Cheque;
 import com.capgemini.pecunia.entity.DepositSlip;
 import com.capgemini.pecunia.entity.TransactionDetails;
 import com.capgemini.pecunia.entity.TransferSlip;
-import com.capgemini.pecunia.entity.withdrawalSlip;
+import com.capgemini.pecunia.entity.WithdrawalSlip;
 import com.capgemini.pecunia.exception.UserException;
 
 /****************************
@@ -24,9 +26,11 @@ import com.capgemini.pecunia.exception.UserException;
 
 @Service
 public class TransactionServiceImp implements TransactionService {
+	private String low="Low Balance";
 
 	@Autowired
 	TransactionDao transactionDao;
+	Logger logger =LoggerFactory.getLogger(TransactionServiceImp.class);
 	
 	/****************************
 	 * Method: Withdrawal Money
@@ -40,7 +44,7 @@ public class TransactionServiceImp implements TransactionService {
 	 
 	 ****************************/
 	@Override
-	public TransactionDetails withdrawalMoneyBySlip(withdrawalSlip slip)  {
+	public TransactionDetails withdrawalMoneyBySlip(WithdrawalSlip slip)  {
 		
 	
 		if(transactionDao.checkAccountNumber(slip.getAccountNumber()))
@@ -57,19 +61,22 @@ public class TransactionServiceImp implements TransactionService {
 				}
 				else
 				{
-					System.out.println("Low Balance");
+					logger.info(low);
+					
 					throw new UserException("LOW ACCOUNT BALANCE");
 				}
 			}
 			else
 			{
-				System.out.println("Account Holder Name is Not matched");
+				logger.info("Account Holder Name is Not matched");
+				
 				throw new UserException("Account Holder Name is Not matched");
 			}
 		}
 		else
 		{
-			System.out.println("Account not exists");
+			logger.info("Account not exists");
+			
 			throw new UserException("Account not exists");
 		}
 	
@@ -106,14 +113,16 @@ public class TransactionServiceImp implements TransactionService {
 			}
 			else
 			{
-				System.out.println("Account Holder Name is Not matched");
+				logger.info("Account Holder Name is Not matched");
+				
 				throw new UserException("Account Holder Name is Not matched");
 				
 			}
 		}
 		else
 		{
-			System.out.println("Account not exists");
+			logger.info("Account not exists");
+			
 			throw new UserException("Account not exists");
 		}
 	
@@ -169,13 +178,15 @@ public class TransactionServiceImp implements TransactionService {
 				}
 				else
 				{
-					System.out.println("Low Balance");
-					throw new UserException("Low Balance");
+					logger.info(low);
+					
+					throw new UserException(low);
 				}
 			}
 			else
 			{
-				System.out.println("Account Holder Name is Not matched");
+				logger.info("Account Holder Name is Not matched");
+			
 				throw new UserException("Account Holder Name is Not matched");
 			}
 		
@@ -183,13 +194,14 @@ public class TransactionServiceImp implements TransactionService {
 		}
 			else
 			{
-				System.out.println("Cheque Number is Wrong");	
+				
+					
 				throw new UserException("Cheque Number is Wrong");
 			}
 		}
 		else
 		{
-			System.out.println("Account not exists");
+			
 			throw new UserException("Account not exists");
 		}
 		
@@ -210,7 +222,7 @@ public class TransactionServiceImp implements TransactionService {
 	 ****************************/
 
 	@Override
-	public TransactionDetails transferMoneyUsingCheque(Cheque cheque, TransferSlip slip) throws UserException {
+	public TransactionDetails transferMoneyUsingCheque(Cheque cheque, TransferSlip slip) {
 		
 		
 
@@ -241,7 +253,7 @@ public class TransactionServiceImp implements TransactionService {
 							}
 							else
 							{
-								System.out.println("cheque is not belong to Benificary Person");
+								
 								throw new UserException("cheque is not belong to Benificary Person");
 							}
 							
@@ -250,7 +262,7 @@ public class TransactionServiceImp implements TransactionService {
 					}
 					else
 					{
-						System.out.println("Benificary Account not exists");
+						
 						throw new UserException("Benificary Account not exists");
 					}
 				}
@@ -266,8 +278,8 @@ public class TransactionServiceImp implements TransactionService {
 				}
 				else
 				{
-					System.out.println("Low Balance");
-					throw new UserException("Low Balance");
+					
+					throw new UserException(low);
 				}
 		
 		
@@ -275,13 +287,13 @@ public class TransactionServiceImp implements TransactionService {
 		}
 			else
 			{
-				System.out.println("Cheque Number is Wrong");	
+					
 				throw new UserException("Account not exists");
 			}
 		}
 		else
 		{
-			System.out.println("Account not exists");
+			
 			throw new UserException("Account not exists");
 		}
 	
@@ -327,7 +339,7 @@ public class TransactionServiceImp implements TransactionService {
         			}
         			else
         			{
-        				System.out.println("cheque holder has low amount");
+        				
         				throw new UserException("cheque holder has low amount");
         			}
         			
@@ -337,25 +349,25 @@ public class TransactionServiceImp implements TransactionService {
         	}
         		else
         		{
-        			System.out.println("Cheque Number is Wrong");
+        			
         			throw new UserException("Cheque Number is Wrong");
         		}
         	}
         	else
         	{
-        		System.out.println("cheque Account Not Exists in  our bank");
+        		
         		throw new UserException("cheque Account Not Exists in  our bank");
         	}
         }
         	else
         	{
-        		System.out.println("Holder Account Not Exists in not our bank");
+        		
         		throw new UserException("Holder Account Not Exists in not our bank");
         	}
         }
         	else
         	{
-        		System.out.println("Cheque belong the another person");
+        		
         		throw new UserException("Cheque belong the another person");
         	}
         }
@@ -372,14 +384,14 @@ public class TransactionServiceImp implements TransactionService {
         		}
         		else
         		{
-        			System.out.println("Holder Account Not Exists in not our bank");
+        			
         			throw new UserException("Holder Account Not Exists in not our bank");
         		}
         		
         	}
         	else
         	{
-        		System.out.println("Cheque belong the another person");
+        		
         		throw new UserException("Cheque belong the another person");
         	}
         }

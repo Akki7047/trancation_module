@@ -7,7 +7,7 @@ import com.capgemini.pecunia.entity.Cheque;
 import com.capgemini.pecunia.entity.DepositSlip;
 import com.capgemini.pecunia.entity.TransactionDetails;
 import com.capgemini.pecunia.entity.TransferSlip;
-import com.capgemini.pecunia.entity.withdrawalSlip;
+import com.capgemini.pecunia.entity.WithdrawalSlip;
 
 /****************************
  *          @author          Akshay
@@ -23,7 +23,7 @@ public List<TransactionDetails> showTransaction();
 public boolean checkAccountNumber(long accountNumber);
 public AccountDetails getAccountDetails(long accountNumber);
 public boolean updateBalance(long accountNumber,double balance);
-public TransactionDetails setTransactionDeails(AccountDetails accountDetails,withdrawalSlip slip);
+public TransactionDetails setTransactionDeails(AccountDetails accountDetails,WithdrawalSlip slip);
 public TransactionDetails setTransactionDeails1(AccountDetails accountDetails,DepositSlip slip);
 public TransactionDetails setTransactionCheque(AccountDetails accountDetails,Cheque cheque);
 public TransactionDetails setTranscationTransfer(AccountDetails accountDetails,Cheque cheque,TransferSlip slip);

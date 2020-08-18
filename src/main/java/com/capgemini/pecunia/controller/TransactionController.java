@@ -19,7 +19,7 @@ import com.capgemini.pecunia.entity.Data;
 import com.capgemini.pecunia.entity.Data1;
 import com.capgemini.pecunia.entity.DepositSlip;
 import com.capgemini.pecunia.entity.TransactionDetails;
-import com.capgemini.pecunia.entity.withdrawalSlip;
+import com.capgemini.pecunia.entity.WithdrawalSlip;
 import com.capgemini.pecunia.exception.UserException;
 import com.capgemini.pecunia.service.TransactionService;
 
@@ -60,7 +60,7 @@ public class TransactionController {
 	 *RestFul Service For Withdrawal Money From Slip
 	 */
 	@PostMapping("/WithdrawingUsingSlip")
-	public ResponseEntity<String>  WithdrawalSlip(@RequestBody withdrawalSlip slip)   {
+	public ResponseEntity<String>  WithdrawalSlip(@RequestBody WithdrawalSlip slip)   {
 		TransactionDetails transactionDetails = null;
 		
 		if(!(slip.getAmount()>=100 && slip.getAmount()<=100000))

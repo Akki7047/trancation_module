@@ -17,14 +17,14 @@ import com.capgemini.pecunia.entity.Cheque;
 import com.capgemini.pecunia.entity.DepositSlip;
 import com.capgemini.pecunia.entity.TransactionDetails;
 import com.capgemini.pecunia.entity.TransferSlip;
-import com.capgemini.pecunia.entity.withdrawalSlip;
+import com.capgemini.pecunia.entity.WithdrawalSlip;
 
 
 /****************************
  *          @author          Akshay
  *          Description      It is a service class that provides the services for Transaction  set and get information 
   *         Version             1.0
-  *         Created Date    11-APR-2020
+  *         Created Date    11-AUG-2020
  ****************************/
 
 @Transactional
@@ -38,21 +38,21 @@ public class TransactionDaoImp implements TransactionDao {
 	 */
 	@Override
 	public void addAccount(AccountDetails account) {
-		// TODO Auto-generated method stub
+		
 		em.persist(account);
 		
 	}
 	//add transaction
 	@Override
 	public boolean addTransaction(TransactionDetails transaction) {
-		// TODO Auto-generated method stub
+		
 		em.persist(transaction);
 		return true;
 	}
 	//get list of today's transaction
 	@Override
 	public List<TransactionDetails> showTransaction() {
-		// TODO Auto-generated method stub
+		
 				Query query=em.createQuery("select t from TransactionDetails t where t.transactiondate=:dateParam");
 				
 				query.setParameter("dateParam", LocalDate.now());
@@ -83,7 +83,7 @@ public class TransactionDaoImp implements TransactionDao {
 	}
 	//set transaction statement by slip withdrawal
 	@Override
-	public TransactionDetails setTransactionDeails(AccountDetails accountDetails, withdrawalSlip slip) {
+	public TransactionDetails setTransactionDeails(AccountDetails accountDetails, WithdrawalSlip slip) {
 		
 		TransactionDetails transaction=new TransactionDetails();
 		transaction.setAccountNumber(accountDetails.getAccountNumber());

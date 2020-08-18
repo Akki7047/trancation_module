@@ -2,7 +2,7 @@ package com.capgemini.pecunia.entity;
 
 import java.time.LocalDate;
 
-public class withdrawalSlip {
+public class WithdrawalSlip {
 private String accountHolderName;	
 private long accountNumber;
 LocalDate currentDate;
@@ -56,13 +56,13 @@ public double getAmount() {
 public void setAmount(double amount) {
 	this.amount = amount;
 }
-public withdrawalSlip(long accountNumber, double amount,String accountHolderName) {
+public WithdrawalSlip(long accountNumber, double amount,String accountHolderName) {
 	super();
 	this.accountNumber = accountNumber;
 	this.amount = amount;
 	this.accountHolderName=accountHolderName;
 }
-public withdrawalSlip() {
+public WithdrawalSlip() {
 	super();
 }
 }
