@@ -10,7 +10,7 @@ import com.capgemini.pecunia.entity.TransferSlip;
 import com.capgemini.pecunia.entity.withdrawalSlip;
 
 /****************************
- *          @author          Satyam Sinha
+ *          @author          Akshay
  *          Description      It is a service class that provides the services for Transaction  set and get information 
   *         Version             1.0
   *         Created Date    7-APR-2020

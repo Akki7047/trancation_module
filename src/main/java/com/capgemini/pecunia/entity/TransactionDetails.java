@@ -51,7 +51,7 @@ public class TransactionDetails {
 	 * @param current_Balance the current_Balance to set
 	 */
 	public void setCurrent_Balance(double current_Balance) {
-		this.current_Balance = current_Balance-transactionAmount;
+		this.current_Balance = current_Balance;
 	}
 
 

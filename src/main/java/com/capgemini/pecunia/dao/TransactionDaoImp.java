@@ -21,7 +21,7 @@ import com.capgemini.pecunia.entity.withdrawalSlip;
 
 
 /****************************
- *          @author          Satyam Sinha
+ *          @author          Akshay
  *          Description      It is a service class that provides the services for Transaction  set and get information 
   *         Version             1.0
   *         Created Date    11-APR-2020
@@ -61,7 +61,7 @@ public class TransactionDaoImp implements TransactionDao {
 	//check account exist or not
 	@Override
 	public boolean checkAccountNumber(long accountNumber) {
-		// TODO Auto-generated method stub
+		
 		return em.contains(em.find(AccountDetails.class,accountNumber));
 		
 	}
@@ -69,14 +69,13 @@ public class TransactionDaoImp implements TransactionDao {
 	//get details of an account
 	@Override
 	public AccountDetails getAccountDetails(long accountNumber) {
-		// TODO Auto-generated method stub
+		
 		return em.find(AccountDetails.class,accountNumber);
 	}
 	//update balance in an account
 	@Override
 	public boolean updateBalance(long accountNumber, double balance) {
-		// TODO Auto-generated method stub
-		if(em.contains(em.find(AccountDetails.class,accountNumber))) {
+				if(em.contains(em.find(AccountDetails.class,accountNumber))) {
 		em.find(AccountDetails.class,accountNumber).setAccountBalance(balance);
 		return true;
 		}
@@ -85,7 +84,7 @@ public class TransactionDaoImp implements TransactionDao {
 	//set transaction statement by slip withdrawal
 	@Override
 	public TransactionDetails setTransactionDeails(AccountDetails accountDetails, withdrawalSlip slip) {
-		// TODO Auto-generated method stub
+		
 		TransactionDetails transaction=new TransactionDetails();
 		transaction.setAccountNumber(accountDetails.getAccountNumber());
 		transaction.setTransactionAmount(slip.getAmount());
@@ -103,7 +102,7 @@ public class TransactionDaoImp implements TransactionDao {
 	//set transaction statement by slip deposit
 	@Override
 	public TransactionDetails setTransactionDeails1(AccountDetails accountDetails, DepositSlip slip) {
-		// TODO Auto-generated method stub
+		
 		TransactionDetails transaction=new TransactionDetails();
 		transaction.setAccountNumber(accountDetails.getAccountNumber());
 		transaction.setTransactionAmount(slip.getAmount());
@@ -121,7 +120,7 @@ public class TransactionDaoImp implements TransactionDao {
 	//set transaction statement by cheque withdrawal
 	@Override
 	public TransactionDetails setTransactionCheque(AccountDetails accountDetails, Cheque cheque) {
-		// TODO Auto-generated method stub
+		
 		TransactionDetails transaction=new TransactionDetails();
 		transaction.setAccountNumber(accountDetails.getAccountNumber());
 		transaction.setTransactionAmount(cheque.getAmount());
@@ -159,7 +158,7 @@ public class TransactionDaoImp implements TransactionDao {
 	//set transaction statement by cheque transfer
 	@Override
 	public TransactionDetails setTranscationTransfer1(AccountDetails accountDetails, Cheque cheque, TransferSlip slip) {
-		// TODO Auto-generated method stub
+		
 		TransactionDetails transaction=new TransactionDetails();
 		transaction.setAccountNumber(cheque.getAccountNumber());
 		transaction.setTransactionAmount(cheque.getAmount());
@@ -178,7 +177,7 @@ public class TransactionDaoImp implements TransactionDao {
 	//set transaction statement by cheque deposit
 	@Override
 	public TransactionDetails setTransactionDeails11(AccountDetails accountDetails, Cheque cheque, DepositSlip slip) {
-		// TODO Auto-generated method stub
+		
 		TransactionDetails transaction=new TransactionDetails();
 		transaction.setAccountNumber(cheque.getAccountNumber());
 		transaction.setTransactionAmount(cheque.getAmount());
@@ -197,7 +196,7 @@ public class TransactionDaoImp implements TransactionDao {
 	//set transaction statement by cheque deposit
 	@Override
 	public TransactionDetails setTransactionDeails12(AccountDetails accountDetails, Cheque cheque, DepositSlip slip) {
-		// TODO Auto-generated method stub
+		
 		TransactionDetails transaction=new TransactionDetails();
 		transaction.setAccountNumber(cheque.getAccountNumber());
 		transaction.setTransactionAmount(cheque.getAmount());

@@ -123,13 +123,13 @@ public class Cheque {
 		this.bankName = bankName;
 	}
 	/**
-	 * @return the issuedate
+	 * @return the issueDate
 	 */
 	public String getIssuedate() {
 		return issuedate;
 	}
 	/**
-	 * @param issuedate the issuedate to set
+	 * @param issuedate the issueDate to set
 	 */
 	public void setIssuedate(String issuedate) {
 		this.issuedate = issuedate;

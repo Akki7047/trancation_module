@@ -2,7 +2,8 @@ package com.capgemini.pecunia;
 
 import java.time.LocalDate;
 
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,7 +16,7 @@ import com.capgemini.pecunia.entity.DepositSlip;
 import com.capgemini.pecunia.entity.TransferSlip;
 import com.capgemini.pecunia.service.TransactionService;
 /****************************
- *          @author          Satyam Sinha
+ *          @author          Akshay
  *          Description      It is a Main class.
   *         Version             1.0
   *         Created Date    7-APR-2020
@@ -29,6 +30,7 @@ public class PecuniaBankApplication implements CommandLineRunner {
 	
 	@Autowired
 	TransactionService transactionService;
+	Logger logger =LoggerFactory.getLogger(PecuniaBankApplication.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(PecuniaBankApplication.class, args);
@@ -36,7 +38,7 @@ public class PecuniaBankApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
+		
 		
 		/*
 		 * Sample Account Details.
@@ -115,7 +117,9 @@ public class PecuniaBankApplication implements CommandLineRunner {
 				
 				
 				DepositSlip slip=new DepositSlip(1875662201,"VAISHALI TIWARI",1000);
-				System.out.println(slip.toString());
+				logger.info(slip.toString());
+			
+				//System.out.println(slip.toString());
 				System.out.println(transactionService.depositMoneyBySlip(slip));
 				
 			    Cheque cheque=new Cheque();
@@ -126,7 +130,7 @@ public class PecuniaBankApplication implements CommandLineRunner {
                  cheque.setIssueDate(LocalDate.of(2020, 05, 01));
                  cheque.setIFSC("PUNB033950");
                  cheque.setPay("VAISHALI TIWARI");
-                //System.out.println( transactionService.withdrawalMoneyUsingCheque(cheque));
+                
                  
                  System.out.println( transactionService.depositChequeInAccount(cheque, slip));
 				
@@ -135,7 +139,7 @@ public class PecuniaBankApplication implements CommandLineRunner {
 				slip1.setAccountNumber(1875662205);
 				slip1.setBankName("PECUNIA");
 				slip1.setIFSC("PUNB033950");
-				//System.out.println( transactionService.transferMoneyUsingCheque(cheque, slip1));
+				
 	}
 
 }

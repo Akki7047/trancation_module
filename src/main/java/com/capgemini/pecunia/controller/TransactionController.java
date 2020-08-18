@@ -19,14 +19,13 @@ import com.capgemini.pecunia.entity.Data;
 import com.capgemini.pecunia.entity.Data1;
 import com.capgemini.pecunia.entity.DepositSlip;
 import com.capgemini.pecunia.entity.TransactionDetails;
-import com.capgemini.pecunia.entity.TransferSlip;
 import com.capgemini.pecunia.entity.withdrawalSlip;
 import com.capgemini.pecunia.exception.UserException;
 import com.capgemini.pecunia.service.TransactionService;
 
 
 /****************************
- *          @author          Akshay patel
+ *          @author          Akshay 
  *          Description      It is a Rest full service class that provides the services for Transaction
   *         Version             1.0
   *         Created Date    12-APR-2020
@@ -44,7 +43,7 @@ public class TransactionController {
 	 *RestFul Service For Deposit Money From Slip
 	 */
 	@PostMapping("/DepositUsingSlip")
-	public ResponseEntity<String> DepositSlip(@RequestBody DepositSlip slip) throws UserException   {
+	public ResponseEntity<String> DepositSlip(@RequestBody DepositSlip slip)   {
 		System.out.println(slip.toString());
 		
 		if(!(slip.getAmount()>=100 && slip.getAmount()<=100000))
@@ -61,7 +60,7 @@ public class TransactionController {
 	 *RestFul Service For Withdrawal Money From Slip
 	 */
 	@PostMapping("/WithdrawingUsingSlip")
-	public ResponseEntity<String>  WithdrawalSlip(@RequestBody withdrawalSlip slip) throws UserException   {
+	public ResponseEntity<String>  WithdrawalSlip(@RequestBody withdrawalSlip slip)   {
 		TransactionDetails transactionDetails = null;
 		
 		if(!(slip.getAmount()>=100 && slip.getAmount()<=100000))
@@ -86,7 +85,7 @@ public class TransactionController {
 	 * Withdrawal money using cheque
 	 */
 	@PostMapping("/WithdrawingUsingCheque")
-	public ResponseEntity<String>  withdrawalCheque(@RequestBody Cheque cheque) throws UserException  {
+	public ResponseEntity<String>  withdrawalCheque(@RequestBody Cheque cheque)  {
 		System.out.println(cheque);
 		String []data;
 		data=cheque.getIssuedate().split("-");
@@ -111,7 +110,7 @@ public class TransactionController {
 	 * Transfer money from one account to another using cheque and transfer slip(carry benificary details)
 	 */
 	@PostMapping("/TransferMoneyUsingCheque")
-	public ResponseEntity<String>  transferCheque(@RequestBody Data1 data1) throws UserException  {
+	public ResponseEntity<String>  transferCheque(@RequestBody Data1 data1)   {
 		String []data;
 		data=data1.getCheque().getIssuedate().split("-");
 		int year = Integer.parseInt( data[0] );
@@ -134,7 +133,7 @@ public class TransactionController {
 	}
 	
 	@PostMapping("/DepositMoneyUsingChequee")
-	public ResponseEntity<String>  depositCheque(@RequestBody Data data2) throws UserException {
+	public ResponseEntity<String>  depositCheque(@RequestBody Data data2)  {
 		String []data;
 		//if(data2.getDepositSlip().getAmount()==data2.getCheque().getAmount())
 		//System.out.println(data2.getCheque().getAmount()+""+data2.getDepositSlip().getAmount());

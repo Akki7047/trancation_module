@@ -2,7 +2,7 @@ package com.capgemini.pecunia.exception;
 
 
 /****************************
- *          @author          Satyam Sinha
+ *          @author         Akshay
  *          Description      It is a service class that provides the services for Transaction Exception
   *         Version             1.0
   *         Created Date    15-APR-2020
