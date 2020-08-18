@@ -96,7 +96,7 @@ public class TransactionDaoImp implements TransactionDao {
 		transaction.setBankName(pec);
 		transaction.setBenificaryName(slip.getAccountHolderName());
 		transaction.setTransactionDate(LocalDateTime.now());
-		transaction.setTransactiondate(LocalDate.now());
+		transaction.setUserTransactionDate(LocalDate.now());
 		transaction.setTransactionType(deb);
 		transaction.setTransactionStatus(suc);
 		transaction.setTransactionOption("Slip");
@@ -114,7 +114,7 @@ public class TransactionDaoImp implements TransactionDao {
 		transaction.setBankName(pec);
 		transaction.setBenificaryName(slip.getAccountHolderName());
 		transaction.setTransactionDate(LocalDateTime.now());
-		transaction.setTransactiondate(LocalDate.now());
+		transaction.setUserTransactionDate(LocalDate.now());
 		transaction.setTransactionType(crd);
 		transaction.setTransactionStatus(suc);
 		transaction.setTransactionOption("Slip");
@@ -132,7 +132,7 @@ public class TransactionDaoImp implements TransactionDao {
 		transaction.setBankName(pec);
 		transaction.setBenificaryName(cheque.getPay());
 		transaction.setTransactionDate(LocalDateTime.now());
-		transaction.setTransactiondate(LocalDate.now());
+		transaction.setUserTransactionDate(LocalDate.now());
 		transaction.setTransactionType(deb);
 		transaction.setTransactionStatus(suc);
 		transaction.setTransactionOption(chq);
@@ -152,7 +152,7 @@ public class TransactionDaoImp implements TransactionDao {
 		transaction.setBenificaryAccoountNumber(slip.getAccountNumber());
 		transaction.setBenificaryName(cheque.getPay());
 		transaction.setTransactionDate(LocalDateTime.now());
-		transaction.setTransactiondate(LocalDate.now());
+		transaction.setUserTransactionDate(LocalDate.now());
 		transaction.setTransactionType(deb);
 		transaction.setTransactionStatus(suc);
 		transaction.setTransactionOption(chq);
@@ -171,7 +171,7 @@ public class TransactionDaoImp implements TransactionDao {
 		transaction.setBenificaryAccoountNumber(slip.getAccountNumber());
 		transaction.setBenificaryName(cheque.getPay());
 		transaction.setTransactionDate(LocalDateTime.now());
-		transaction.setTransactiondate(LocalDate.now());
+		transaction.setUserTransactionDate(LocalDate.now());
 		transaction.setTransactionType(crd);
 		transaction.setTransactionStatus(suc);
 		transaction.setTransactionOption(chq);
@@ -190,7 +190,7 @@ public class TransactionDaoImp implements TransactionDao {
 		transaction.setBenificaryAccoountNumber(slip.getAccountNumber());
 		transaction.setBenificaryName(accountDetails.getAccountHolderName());
 		transaction.setTransactionDate(LocalDateTime.now());
-		transaction.setTransactiondate(LocalDate.now());
+		transaction.setUserTransactionDate(LocalDate.now());
 		transaction.setTransactionType(crd);
 		transaction.setTransactionStatus(suc);
 		transaction.setTransactionOption(chq);
@@ -209,7 +209,7 @@ public class TransactionDaoImp implements TransactionDao {
 		transaction.setBenificaryAccoountNumber(slip.getAccountNumber());
 		transaction.setBenificaryName(cheque.getPay());
 		transaction.setTransactionDate(LocalDateTime.now());
-		transaction.setTransactiondate(LocalDate.now());
+		transaction.setUserTransactionDate(LocalDate.now());
 		transaction.setTransactionType(deb);
 		transaction.setTransactionStatus(suc);
 		transaction.setTransactionOption(chq);
