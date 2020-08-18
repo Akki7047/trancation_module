@@ -17,7 +17,7 @@ environment {
 }
                 stage('compile Stages'){
                       steps{
-                          bat 'sonar:sonar' 
+                          bat 'mvn sonar:sonar' 
                                      }
                                }
 }
